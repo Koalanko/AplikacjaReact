@@ -7,11 +7,15 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 class BlogController extends AbstractController
 {
-#[Route('/blog', name: 'blog_list')]
-public function list(): Response
-{
+    // ...
 
-    return $this->render('lucky/number101.html.twig', [
-    ]);
-}
+    #[Route('/blog/{slug}', name: 'blog_show')]
+    public function show(string $slug): Response
+    {
+
+
+        return $this->render('hello\1.html.twig', [
+            'name' => $slug,
+        ]);
+    }
 }
