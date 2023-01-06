@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class BlogController extends AbstractController
 {
     // ...
-    #[Route('/json', name: 'blog_show')]
+    #[Route('/json', name: 'blog_show11')]
     public function index(): JsonResponse
     {
         // returns '{"username":"jane.doe"}' and sets the proper Content-Type header
