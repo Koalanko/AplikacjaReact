@@ -11,6 +11,7 @@ app_lucky_number:
 app_number101:
     path: /lucky/number101
     controller: App\Controller\LuckyController::number2
+
 blog_list:
     path: /blog
     controller: App\Controller\BlogController::list
