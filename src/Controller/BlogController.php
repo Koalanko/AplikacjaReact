@@ -25,7 +25,7 @@ class BlogController extends AbstractController
     public function index2(): BinaryFileResponse
     {
         // returns '{"username":"jane.doe"}' and sets the proper Content-Type header
-        $file = new File('/path/to/some_file.pdf');
+        $file = new File('C:\xampp\php\bbcare3\some_file.pdf');
         return $this->file($file);
         // the shortcut defines three optional arguments
         // return $this->json($data, $status = 200, $headers = [], $context = []);
