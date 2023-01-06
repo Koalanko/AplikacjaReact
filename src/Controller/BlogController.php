@@ -27,4 +27,12 @@ class BlogController extends AbstractController
             'name' => $slug,
         ]);
     }
+    #[Route('/blog/log', name: 'blog_show3', priority: 3)]
+    public function show3(LoggerInterface $logger): Response
+    {
+        $logger->info('We are logging!');
+        return $this->render('hello\1.html.twig', [
+            'name' => "3",
+        ]);
+    }
 }
