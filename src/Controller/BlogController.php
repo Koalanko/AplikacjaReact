@@ -7,10 +7,19 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 class BlogController extends AbstractController
 {
     // ...
+    #[Route('/json', name: 'blog_show')]
+    public function index(): JsonResponse
+    {
+        // returns '{"username":"jane.doe"}' and sets the proper Content-Type header
+        return $this->json(['username' => 'jane.doe']);
 
+        // the shortcut defines three optional arguments
+        // return $this->json($data, $status = 200, $headers = [], $context = []);
+    }
     #[Route('/blog/{slug}', name: 'blog_show')]
     public function show(string $slug): Response
     {
