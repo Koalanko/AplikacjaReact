@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Request;
 class BlogController extends AbstractController
 {
     // ...
@@ -20,9 +21,12 @@ class BlogController extends AbstractController
         ]);
     }
     #[Route('/blog/list', name: 'blog_show2', priority: 2)]
-    public function show2(SessionInterface $session): Response
+    public function show2(Request $request): Response
     {
-        $session->set('foo', 'bar');
+        $this->addFlash(
+            'notice',
+            'Your changes were saved!'
+        );
             $slug="defaultaaaaaaa";
 
         return $this->render('hello\1.html.twig', [
