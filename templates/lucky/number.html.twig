@@ -1,7 +1,7 @@
 {# templates/lucky/number.html.twig #}
-<h1>Your lucky number is {{ number }}</h1>
 {% for message in app.flashes('notice') %}
     <div class="flash-notice">
         {{ message }}
     </div>
 {% endfor %}
+<h1>Your lucky number is {{ number }}</h1>
