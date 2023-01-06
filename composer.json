@@ -15,6 +15,7 @@
         "symfony/framework-bundle": "6.2.*",
         "symfony/monolog-bundle": "*",
         "symfony/runtime": "6.2.*",
+        "symfony/twig-pack": "*",
         "symfony/webapp-pack": "*",
         "symfony/yaml": "6.2.*"
     },
