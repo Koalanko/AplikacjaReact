@@ -14,7 +14,11 @@ class BlogController extends AbstractController
     #[Route('/blog/{slug}', name: 'blog_show')]
     public function show(string $slug): Response
     {
+        $response = new Response('Hello '.$slug, Response::HTTP_OK);
 
+// creates a CSS-response with a 200 status code
+        $response = new Response('<style> ... </style>');
+        $response->headers->set('Content-Type', 'text/css');
 
         return $this->render('hello\1.html.twig', [
             'name' => $slug,
