@@ -7,3 +7,7 @@ controllers:
 app_lucky_number:
     path: /lucky/number
     controller: App\Controller\LuckyController::number
+
+app_number101:
+    path: /lucky/number101
+    controller: App\Controller\LuckyController::number2
