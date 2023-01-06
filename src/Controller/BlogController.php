@@ -27,7 +27,7 @@ class BlogController extends AbstractController
         // returns '{"username":"jane.doe"}' and sets the proper Content-Type header
         $file = new File('C:\xampp\php\bbcare3\some_file.json');
 
-        return $this->file($file,'newname');
+        return $this->file($file,'newname.json');
         // the shortcut defines three optional arguments
         // return $this->json($data, $status = 200, $headers = [], $context = []);
     }
