@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class BlogController extends AbstractController
 {
     // ...
@@ -19,20 +20,14 @@ class BlogController extends AbstractController
         ]);
     }
     #[Route('/blog/list', name: 'blog_show2', priority: 2)]
-    public function show2(): Response
+    public function show2(SessionInterface $session): Response
     {
+        $session->set('foo', 'bar');
             $slug="defaultaaaaaaa";
 
         return $this->render('hello\1.html.twig', [
             'name' => $slug,
         ]);
     }
-    #[Route('/blog/log', name: 'blog_show3', priority: 3)]
-    public function show3(): Response
-    {
-        //$logger->info('We are logging!');
-        return $this->render('hello\1.html.twig', [
-            'name' => "3",
-        ]);
-    }
+
 }
