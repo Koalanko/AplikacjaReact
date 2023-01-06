@@ -19,7 +19,7 @@ class BlogController extends AbstractController
         ]);
     }
     #[Route('/blog/list', name: 'blog_show', priority: 2)]
-    public function show2(): Response
+    public function show2(string $slug): Response
     {
             $slug="default";
 
