@@ -21,7 +21,7 @@ class BlogController extends AbstractController
     #[Route('/blog/list', name: 'blog_show2', priority: 2)]
     public function show2(): Response
     {
-            $slug="default";
+            $slug="defaultaaaaaaa";
 
         return $this->render('hello\1.html.twig', [
             'name' => $slug,
