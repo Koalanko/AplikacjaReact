@@ -8,15 +8,25 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\File\File;
 class BlogController extends AbstractController
 {
     // ...
-    #[Route('/json', name: 'blog_show11')]
     public function index(): JsonResponse
     {
         // returns '{"username":"jane.doe"}' and sets the proper Content-Type header
         return $this->json(['username' => 'jane.doe']);
 
+        // the shortcut defines three optional arguments
+        // return $this->json($data, $status = 200, $headers = [], $context = []);
+    }
+    #[Route('/json', name: 'blog_show11')]
+    public function index2(): BinaryFileResponse
+    {
+        // returns '{"username":"jane.doe"}' and sets the proper Content-Type header
+        $file = new File('/path/to/some_file.pdf');
+        return $this->file($file);
         // the shortcut defines three optional arguments
         // return $this->json($data, $status = 200, $headers = [], $context = []);
     }
