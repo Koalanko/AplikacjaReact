@@ -10,9 +10,8 @@ class BlogController extends AbstractController
 #[Route('/blog', name: 'blog_list')]
 public function list(): Response
 {
-    $number = random_int(0, 100);
-    return $this->render('lucky/number.html.twig', [
-        'number' => $number,
+
+    return $this->render('lucky/number101.html.twig', [
     ]);
 }
 }
