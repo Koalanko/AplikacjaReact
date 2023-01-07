@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<style>
+p{
+color:black}
+</style>
+<script src="skrypty/hello.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="shortcut icon" href="obrazy/logo.jpg">
+<title>Odtwarzacz muzyki</title>
+<center>
+<h1> Odtwarzacz muzyki </h1>
+<img src="obrazy/logo.jpg" width="104" height="142">
+</center>
+</head>
+<body>
+<center>
+<p>Odtwarzany utwór:</p>
+<p id="odtwarzanyUtwor" ></p>
+<audio id="music">
+Your browser does not support the audio element.
+</audio>
+<!-- Interface użytkownika-->
+<button onclick="wstecz()" type="button">Wstecz </button>
+<button onclick="dalej()" type="button">Dalej </button>
+<button onclick="losuj()" type="button">Losuj </button>
+<br>
+<button onclick="play()"  type="button">Play </button>
+<button onclick="pause()" type="button">Pause</button>
+<button onclick="reset()" type="button">Restart</button>
+<br>
+<div>
+  <input type="range" id="glosnosc" name="volume"
+         min="0" max="100" value="50"
+		 background="#3f47ce"
+		 onclick="glosnosc()">
+  <label for="volume">Głośność</label>
+</div>
+Aktualna głośność:<p id="aktualnaGlosnosc"></p></button>
+<!-- Dodawanie nowego utworu -->
+<hr>
+<p id="99"> Wprowadz dane nowego utworu</p>
+<input type "text" id="PrzykladowyInput" value="Input">
+<button id="InputowyPrzycisk">Zatwierdź</button>
+<div id="Dodawanie" hidden>
+<label for="tytul">Tytuł:</label>
+<input type "text" id="tytul">
+<br>
+<button onclick="zatwierdz()" type="button">Zatwierdź</button>
+<p>Playlista:</p>
+<p id="playlista"></p>
+</div>
+<script><!-- Funkcje -->
+{<!-- Deklarowanie zmiennych -->
+var myMusic= document.getElementById("music");
+var Tytul=document.getElementById("tytul");
+var Tytuly=['Dont Stay-Linkin Park','Medicate-Hollywood Undead'];
+var NrUtworu=0;
+var Glosnosc=document.getElementById("glosnosc").value;}
+{<!-- Funkcje wywołane na początku działania aplikacji -->
+wyswietl();
+document.getElementById("odtwarzanyUtwor").innerHTML = Tytuly[NrUtworu];
+document.getElementById("aktualnaGlosnosc").innerHTML=document.getElementById("glosnosc").value;
+document.getElementById("music").src="dzwieki/"+Tytuly[NrUtworu]+".mp3";}
+function glosnosc(){
+myMusic.volume=document.getElementById("glosnosc").value/100.0;
+document.getElementById("aktualnaGlosnosc").innerHTML=document.getElementById("glosnosc").value;
+}
+function losuj(){
+hello();
+  NrUtworu= Math.floor(Math.random()*Tytuly.length);
+document.getElementById("music").src="dzwieki/"+Tytuly[NrUtworu]+".mp3";
+document.getElementById("odtwarzanyUtwor").innerHTML = Tytuly[NrUtworu];
+}
+function wyswietl(){
+document.getElementById("playlista").innerHTML=Tytuly;
+}
+function play() {
+//document.getElementById("music").src="dzwieki/"+Tytuly[NrUtworu]+".mp3";
+myMusic.play();
+}
+function pause() {
+myMusic.pause();
+}
+function reset() {
+myMusic.load();
+myMusic.play();
+}
+function zatwierdz(){
+Tytuly.push(tytul.value);
+wyswietl();
+}
+function wstecz(){
+if(NrUtworu!=0){
+NrUtworu--;
+}
+document.getElementById("odtwarzanyUtwor").innerHTML = Tytuly[NrUtworu];
+document.getElementById("music").src="dzwieki/"+Tytuly[NrUtworu]+".mp3";
+}
+function dalej(){
+if (NrUtworu<Tytuly.length-1){
+NrUtworu++;
+}
+document.getElementById("odtwarzanyUtwor").innerHTML = Tytuly[NrUtworu];
+document.getElementById("music").src="dzwieki/"+Tytuly[NrUtworu]+".mp3";
+}
+function przelacz(){
+location.replace("podstrony/strona2.html");
+}
+$("button").mouseenter(function(){
+	console.log("jquerry!");
+});
+$("#99").click(function(){$("#Dodawanie").toggle(1000);
+});
+$("#99").hover(function(){
+$(this).css("color","#cccccc");
+$(this).css("cursor","pointer");
+},
+function(){
+$(this).css("color","#000000");
+});
+$("#99").mouseup(function(){
+$(this).css("color","#906090");
+});
+$("#InputowyPrzycisk").click(function(){
+$.post("plik1.asp",
+{
+name: "Krzysztof"
+})
+});
+</script>
+</body>
+<footer>
+<button onclick="przelacz()" type="button">Przełącz stronę</button>
+</footer>
+</html>
+//9:00
