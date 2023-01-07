@@ -1,25 +1,3 @@
 {# templates/lucky/number.html.twig #}
-{% for message in app.flashes('notice') %}
-    <div class="flash-notice">
-        {{ message }}
-    </div>
-{% endfor %}
-
-{# read and display several types of flash messages #}
-{% for label, messages in app.flashes(['success', 'warning']) %}
-    {% for message in messages %}
-        <div class="flash-{{ label }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endfor %}
-
-{# read and display all flash messages #}
-{% for label, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="flash-{{ label }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endfor %}
+{{ title|upper }}
 <h1>Your lucky number is {{ number }}</h1>
