@@ -17,13 +17,17 @@ class UserController extends AbstractController
     public function show(ManagerRegistry $doctrine, int $id): Response
     {
         $product = $doctrine->getRepository(Pets::class)->find($id);
-
+        $data = array(
+            'name' => 'John',
+            'age' => 30,
+            'city' => 'New York'
+        );
         if (!$product) {
             throw $this->createNotFoundException(
                 'No product found for id '.$id
             );
         }
-        $jsonData = json_encode($product);
+        $jsonData = json_encode($data);
         $file = 'C:\xampp\php\bbcare3\some_file.json';
         file_put_contents($file, $jsonData);
 
