@@ -2,7 +2,6 @@
 import React from 'react';
 <h1>Hello {{ user_first_name }}!</h1>
 <p>You have {{ notifications[2] }} new notifications.</p>
-ReactDOM.render(<PrettyPrintJson></PrettyPrintJson>, document.getElementById('container'));
 <label for="text-input"></label><input type="text" id="text-input">
 
 {{ form_widget(form.add_text) }}
@@ -16,11 +15,4 @@ ReactDOM.render(<PrettyPrintJson></PrettyPrintJson>, document.getElementById('co
 </script>
 <script src="{{ asset('build/react.js') }}"></script>
 <script src="{{ asset('build/MyComponent.js') }}"></script>
-<script>class PrettyPrintJson extends React.Component {
-        render() {
-            // data could be a prop for example
-            // const { data } = this.props;
-            return (<div><pre>{JSON.stringify(data, null, 2) }</pre></div>);
-        }
-    }
-</script>
+

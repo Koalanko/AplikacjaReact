@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-function MyComponent(props) {
+function App() {
     return (
-        <div>
-            Hello, {props.name}!
+        <div className="App">
+            
         </div>
     );
 }
 
-export default MyComponent;
+export default App;
