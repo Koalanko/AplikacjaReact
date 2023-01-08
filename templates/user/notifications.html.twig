@@ -17,5 +17,10 @@ Zawartosc bazy danych:
 <script>
     const jsonData = document.getElementById('data').json;
 
-    document.getElementById("json-container").innerHTML = jsonData;
+    let html = "";
+    for (const key in jsonData) {
+        html += `<div><span class="key">${key}:</span> <span class="value">${jsonData[key]}</span></div>`;
+    }
+
+    document.getElementById("json-container").innerHTML = html;
 </script>
