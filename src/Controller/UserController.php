@@ -23,14 +23,18 @@ class UserController extends AbstractController
                 'No product found for id '.$id
             );
         }
+        $jsonData = json_encode($product);
+        $file = 'C:\xampp\php\bbcare3\some_file.json';
+        file_put_contents($file, $jsonData);
 
+// create a new response object
         $response = new Response();
 
 // set the response content type to be JSON
         $response->headers->set('Content-Type', 'application/json');
 
 // set the response content
-        $response->setContent(json_encode($product));
+        $response->setContent($jsonData);
 
 // return the response object
         return $response;
