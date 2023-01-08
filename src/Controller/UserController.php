@@ -46,13 +46,22 @@ class UserController extends AbstractController
         // return $this->render('product/show.html.twig', ['product' => $product]);
     }
     #[Route('/user', name: 'user_app')]
-    public function notifications(): Response
+    public function notifications(ManagerRegistry $doctrine): Response
     {
         // get the user information and notifications somehow
         $userFirstName = 'Koalanko';
         $userNotifications = ['bbb', '123','ad.gnsljdvm','aaa'];
 
-
+        $product = $doctrine->getRepository(Pets::class)->findAll();
+        $data = array();
+        foreach ($product as $pet) {
+            $data[] = array(
+                'id' => $pet->getId(),
+                'name' => $pet->getName(),
+                'type' => $pet->getType()
+            );
+        }
+        $jsonData = json_encode($data);
         $form = $this->createFormBuilder()
             ->add('add_text', SubmitType::class, [
                 'label' => 'Add Text',
@@ -70,6 +79,7 @@ class UserController extends AbstractController
             'user_first_name' => $userFirstName,
             'notifications' => $userNotifications,
             'form' =>$form,
+            'data'=>$jsonData
         ]);
     }
 
