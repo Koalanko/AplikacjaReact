@@ -14,17 +14,25 @@ use Symfony\Component\HttpFoundation;
 class UserController extends AbstractController
 {
     #[Route('/product/{id}', name: 'product_show')]
-    public function show(ManagerRegistry $doctrine, int $id): JsonResponse
+    public function show(ManagerRegistry $doctrine, int $id): Response
     {
         $product = $doctrine->getRepository(Pets::class)->find($id);
-        $response = new JsonResponse($product);
-        $response->headers->set('Content-Disposition', 'attachment; filename="data.json"');
+
         if (!$product) {
             throw $this->createNotFoundException(
                 'No product found for id '.$id
             );
         }
 
+        $response = new Response();
+
+// set the response content type to be JSON
+        $response->headers->set('Content-Type', 'application/json');
+
+// set the response content
+        $response->setContent(json_encode($product));
+
+// return the response object
         return $response;
 
         // or render a template
