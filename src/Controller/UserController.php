@@ -14,17 +14,17 @@ use Symfony\Component\HttpFoundation;
 class UserController extends AbstractController
 {
     #[Route('/product/{id}', name: 'product_show')]
-    public function show(ManagerRegistry $doctrine, int $id): JsonResponse
+    public function show(ManagerRegistry $doctrine, int $id): HttpFoundation\ResponseHeaderBag
     {
         $product = $doctrine->getRepository(Pets::class)->find($id);
-        $response = new JsonResponse($product, 200, ['Content-Type' => 'application/json']);
+        $response = new JsonResponse($product);
         if (!$product) {
             throw $this->createNotFoundException(
                 'No product found for id '.$id
             );
         }
 
-        return $response;
+        return $response->headers;
 
         // or render a template
         // in the template, print things with {{ product.name }}
