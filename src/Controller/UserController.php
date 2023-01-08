@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation;
 
 class UserController extends AbstractController
 {
-    #[Route('/product/{id}', name: 'product_show')]
+    #[Route('/product', name: 'product_show')]
     public function show(ManagerRegistry $doctrine, int $id): Response
     {
         $product = $doctrine->getRepository(Pets::class)->findAll();
@@ -34,6 +34,9 @@ class UserController extends AbstractController
 
 // set the response content type to be JSON
         $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+
+        $response->setContent(json_encode($data));
 
 // set the response content
         $response->setContent($jsonData);
