@@ -5,16 +5,18 @@ namespace App\Controller;
 use App\Entity\Pets;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation;
 
 class UserController extends AbstractController
 {
     #[Route('/product/{id}', name: 'product_show')]
-    public function show(ManagerRegistry $doctrine, int $id): Response
+    public function show(ManagerRegistry $doctrine, int $id): JsonResponse
     {
-        $product = $doctrine->getRepository(Pets::class)->find($id);
+        $product = $doctrine->getRepository(Pets::class)->findAll();
 
         if (!$product) {
             throw $this->createNotFoundException(
@@ -22,7 +24,7 @@ class UserController extends AbstractController
             );
         }
 
-        return new Response('Check out this great pet: '.$product->getName().' the '.$product->getType());
+        return new JsonResponse($product);
 
         // or render a template
         // in the template, print things with {{ product.name }}
