@@ -17,7 +17,7 @@ class UserController extends AbstractController
     public function show(ManagerRegistry $doctrine, int $id): JsonResponse
     {
         $product = $doctrine->getRepository(Pets::class)->find($id);
-        $response = new JsonResponse($product);
+        $response = new JsonResponse($product, 200, ['Content-Type' => 'application/json']);
         if (!$product) {
             throw $this->createNotFoundException(
                 'No product found for id '.$id
