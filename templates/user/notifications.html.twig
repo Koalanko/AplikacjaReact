@@ -8,7 +8,7 @@
 Zawartosc bazy danych:
 <p>{{ data }}</p>
 <div id="json-container">
-    {% for key, value in {{ data }} %}
+    {% for key, value in jsonData %}
         <div><span class="key">{{ key }}:</span> <span class="value">{{ value }}</span></div>
     {% endfor %}
 </div>

@@ -79,7 +79,8 @@ class UserController extends AbstractController
             'user_first_name' => $userFirstName,
             'notifications' => $userNotifications,
             'form' =>$form,
-            'data'=>$jsonData
+            'data'=>$jsonData,
+            'jsonData' => json_encode($jsonData),
         ]);
     }
 
