@@ -3,6 +3,7 @@
     "@babel/preset-react": "^7.18.6",
     "@hotwired/stimulus": "^3.0.0",
     "@symfony/ux-react": "file:vendor/symfony/ux-react/assets",
+    "babel-preset-react": "^6.24.1",
     "jquerry": "^0.0.1-security"
   },
   "dependencies": {
