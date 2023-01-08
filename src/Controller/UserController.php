@@ -2,23 +2,35 @@
 // src/Controller/UserController.php
 namespace App\Controller;
 
+use App\Entity\Pets;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
+
 class UserController extends AbstractController
 {
     #[Route('/user', name: 'user_app')]
-    public function notifications(): Response
+    public function notifications(ManagerRegistry $doctrine): Response
     {
         // get the user information and notifications somehow
         $userFirstName = 'Koalanko';
         $userNotifications = ['bbb', '123','ad.gnsljdvm','aaa'];
+        $entityManager = $doctrine->getManager();
         $form = $this->createFormBuilder()
             ->add('add_text', SubmitType::class, [
                 'label' => 'Add Text',
                 'attr' => [
                     'onclick' => 'addText()',
+                    $Pets=new Pets(),
+                    $Pets->setName('Bunia'),
+                    $Pets->setType('Krolik'),
+                    // tell Doctrine you want to (eventually) save the Product (no queries yet)
+                    $entityManager->persist($Pets),
+
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush(),
                 ],
             ])
             ->getForm();
