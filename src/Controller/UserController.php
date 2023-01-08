@@ -51,8 +51,7 @@ class UserController extends AbstractController
         // get the user information and notifications somehow
         $userFirstName = 'Koalanko';
         $userNotifications = ['bbb', '123','ad.gnsljdvm','aaa'];
-        #$entityManager = $doctrine->getManager();
-        #$Pets=new Pets();
+
 
         $form = $this->createFormBuilder()
             ->add('add_text', SubmitType::class, [
