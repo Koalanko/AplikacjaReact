@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation;
 class UserController extends AbstractController
 {
     #[Route('/product', name: 'product_show')]
-    public function show(ManagerRegistry $doctrine, int $id): Response
+    public function show(ManagerRegistry $doctrine): Response
     {
         $product = $doctrine->getRepository(Pets::class)->findAll();
         $data = array();
