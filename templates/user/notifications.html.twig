@@ -6,7 +6,7 @@
 {{ form_widget(form.add_text) }}
 <p id="text-container"></p>
 Zawartosc bazy danych:
-<p>You have {{ data }} new notifications.</p>
+<p>{{ data }}</p>
 <div id="json-container"></div>
 <script>
     function addText() {
@@ -15,6 +15,6 @@ Zawartosc bazy danych:
     }
 </script>
 <script>
-const jsonString = JSON.stringify(data);
-document.getElementById("json-container").innerHTML = jsonString;
+
+document.getElementById("json-container").innerHTML = {{ data }};
 </script>
