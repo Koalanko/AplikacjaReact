@@ -1,7 +1,7 @@
 {# templates/user/notifications.html.twig #}
 <h1>Hello {{ user_first_name }}!</h1>
 <p>You have {{ notifications[2] }} new notifications.</p>
-<div {{ react_component('MyComponent', { 'fullName': app.user.fullName }) }}></div>
+<div {{ react_component('MyComponent', { 'fullName': 'Koalanko' }) }}></div>
 <label for="text-input"></label><input type="text" id="text-input">
 
 {{ form_widget(form.add_text) }}
