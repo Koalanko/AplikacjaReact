@@ -24,6 +24,7 @@ class UserController extends AbstractController
             // (Twig recommends using snake_case variable names: 'foo_bar' instead of 'fooBar')
             'user_first_name' => $userFirstName,
             'notifications' => $userNotifications,
+            'form' =>$form,
         ]);
     }
 
