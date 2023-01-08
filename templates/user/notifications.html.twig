@@ -1,4 +1,5 @@
 {# templates/user/notifications.html.twig #}
+import React from 'react';
 <h1>Hello {{ user_first_name }}!</h1>
 <p>You have {{ notifications[2] }} new notifications.</p>
 <div {{ react_component('MyComponent', { 'fullName': user_first_name }) }}></div>
