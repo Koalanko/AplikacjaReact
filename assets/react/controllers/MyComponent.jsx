@@ -1,9 +1,5 @@
 import React from 'react';
 
-function MyComponent(props) {
-    return (
-        <div>
-            Hello, {props.name}!
-        </div>
-    );
+export default function (props) {
+    return <div>Hello {props.fullName}</div>;
 }
