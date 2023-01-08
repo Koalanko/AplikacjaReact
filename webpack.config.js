@@ -1,5 +1,7 @@
 // webpack.config.js
 // ...
+import Encore from "@symfony/webpack-encore/lib/WebpackConfig";
+
 Encore
     // ...
     .enableReactPreset()
