@@ -3,6 +3,7 @@
 <p>You have {{ notifications[2] }} new notifications.</p>
 
 <label for="text-input"></label><input type="text" id="text-input">
+{{ form_widget(form.add_text) }}
 <p id="text-container"></p>
 <script>
     function addText() {
