@@ -3,7 +3,9 @@
 <p>You have {{ notifications[2] }} new notifications.</p>
 <img src="{{ asset('images/pobrane.png') }}" alt="Symfony!"/>
 <label for="text-input"></label><input type="text" id="text-input">
-{{ form_widget(form.save) }}
+
+{{ form_widget(form.add_text) }}
+
 <div id="text-container"></div>
 <script>
     function addText() {
