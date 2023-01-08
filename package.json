@@ -1,5 +1,5 @@
 {
-"name": "my-symfony-app",
+  "name": "my-symfony-app",
   "version": "0.1.0",
   "scripts": {
     "encore": "encore"
@@ -19,8 +19,8 @@
     "@symfony/webpack-encore": "^4.2.0",
     "axios": "^1.2.2",
     "prop-types": "^15.8.1",
-    "react": "^18.0",
-    "react-dom": "^18.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
     "reactstrap": "^9.1.5"
   }
