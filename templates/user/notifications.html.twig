@@ -2,12 +2,4 @@
 <h1>Hello {{ user_first_name }}!</h1>
 <p>You have {{ notifications[2] }} new notifications.</p>
 <img src="{{ asset('images/pobrane.png') }}" alt="Symfony!"/>
-<div {{ stimulus_controller('say-hello') }}>
-    <input type="text" {{ stimulus_target('say-hello', 'name') }}>
-
-    <button {{ stimulus_action('say-hello', 'greet') }}>
-        Greet
-    </button>
-
-    <div {{ stimulus_target('say-hello', 'output') }}></div>
-</div>
+{{ form_widget(form.save) }}
