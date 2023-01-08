@@ -2,7 +2,9 @@
 import React from 'react';
 <h1>Hello {{ user_first_name }}!</h1>
 <p>You have {{ notifications[2] }} new notifications.</p>
-<div {{ react_component('MyComponent', { 'fullName': user_first_name }) }}></div>
+<div id="root">
+    {{ react(component='MyComponent', props={"name": name}) }}
+</div>
 <label for="text-input"></label><input type="text" id="text-input">
 
 {{ form_widget(form.add_text) }}
@@ -14,3 +16,5 @@ import React from 'react';
         document.getElementById('text-container').innerHTML += text;
     }
 </script>
+<script src="{{ asset('build/react.js') }}"></script>
+<script src="{{ asset('build/MyComponent.js') }}"></script>
