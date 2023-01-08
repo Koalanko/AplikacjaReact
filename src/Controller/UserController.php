@@ -18,6 +18,7 @@ class UserController extends AbstractController
     {
         $product = $doctrine->getRepository(Pets::class)->find($id);
         $response = new JsonResponse($product);
+        $response->headers->set('Content-Disposition', 'attachment; filename="data.json"');
         if (!$product) {
             throw $this->createNotFoundException(
                 'No product found for id '.$id
