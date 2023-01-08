@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation;
 
 class UserController extends AbstractController
 {
-    #[Route('/product/{id}', name: 'product_show')]
+    #[Route('/product', name: 'product_show')]
     public function show(ManagerRegistry $doctrine, int $id): JsonResponse
     {
         $product = $doctrine->getRepository(Pets::class)->findAll();
