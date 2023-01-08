@@ -1,1 +1,26 @@
-{"name":"my-symfony-app","version":"0.1.0","scripts":{"encore":"encore"},"private":true,"license":"MIT","devDependencies":{"@hotwired/stimulus":"^3.0.0","@symfony/ux-react":"file:vendor/symfony/ux-react/assets","jquerry":"^0.0.1-security"},"dependencies":{"@babel/core":"^7.20.12","@symfony/webpack-encore":"^4.2.0","axios":"^1.2.2","prop-types":"^15.8.1","react":"^18.0","react-dom":"^18.0","react-router-dom":"^6.6.1","reactstrap":"^9.1.5"}}
+{
+  "name": "my-symfony-app",
+  "version": "0.1.0",
+  "scripts": {
+    "encore": "encore"
+  },
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@hotwired/stimulus": "^3.0.0",
+    "@symfony/ux-react": "file:vendor/symfony/ux-react/assets",
+    "jquerry": "^0.0.1-security",
+    "webpack-notifier": "1.15.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.20.12",
+    "@symfony/webpack-encore": "^4.2.0",
+    "axios": "^1.2.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.0",
+    "react-dom": "^18.0",
+    "react-router-dom": "^6.6.1",
+    "reactstrap": "^9.1.5",
+    "webpack": "^5.75.0"
+  }
+}

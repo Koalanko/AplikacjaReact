@@ -1,44 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import "./App.css";
+import { Stocks } from "./Stocks";
 
-import Items from './Components/Items';
 
-
-class App extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            entries: []
-        };
-    }
-
-    componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/posts/')
-            .then(response => response.json())
-            .then(entries => {
-                this.setState({
-                    entries
-                });
-            });
-    }
-
-    render() {
-        return (
-            <div className="row">
-                {this.state.entries.map(
-                    ({ id, title, body }) => (
-                        <Items
-                            key={id}
-                            title={title}
-                            body={body}
-                        >
-                        </Items>
-                    )
-                )}
-            </div>
-        );
-    }
+function App() {
+    return (
+        <div className="App">
+            <Stocks />
+        </div>
+    );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default App;
