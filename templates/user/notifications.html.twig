@@ -15,10 +15,11 @@ Zawartosc bazy danych:
     }
 </script>
 <script>
+    let data2= document.getElementById({{ data }}).value;
     let html = "";
-    for (const key in {{ data }}) {
+    for (const key in data2) {
         html += `<div><span class="key">${key}:</span> <span class="value">${jsonData[key]}</span></div>`;
     }
 
-    document.getElementById("json-container").innerHTML = {{ data }};
+    document.getElementById("json-container").innerHTML = html;
 </script>
