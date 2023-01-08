@@ -3,7 +3,7 @@
 <h1>Hello {{ user_first_name }}!</h1>
 <p>You have {{ notifications[2] }} new notifications.</p>
 <label for="text-input"></label><input type="text" id="text-input">
-<div {{ react_component('MyComponent', { 'fullName': user_first_name }) }}></div>
+<div id="root"></div>
 {{ form_widget(form.add_text) }}
 
 <div id="text-container"></div>
@@ -12,4 +12,8 @@
         const text = document.getElementById('text-input').value;
         document.getElementById('text-container').innerHTML += text;
     }
+</script>
+<script src="C:\xampp\php\bbcare3\templates\user\mycomponent.js"></script>
+<script>
+    ReactDOM.render(<MyComponent />, document.getElementById('root'));
 </script>
