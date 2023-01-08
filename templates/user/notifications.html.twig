@@ -3,7 +3,6 @@
 <h1>Hello {{ user_first_name }}!</h1>
 <p>You have {{ notifications[2] }} new notifications.</p>
 <label for="text-input"></label><input type="text" id="text-input">
-<div {{ react_component('MyComponent', { 'fullName': app.user.fullName }) }}></div>
 {{ form_widget(form.add_text) }}
 
 <div id="text-container"></div>
