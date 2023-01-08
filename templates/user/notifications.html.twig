@@ -7,11 +7,7 @@
 <p id="text-container"></p>
 Zawartosc bazy danych:
 <p>{{ data }}</p>
-<div id="json-container">
-    {% for key, value in {{ data }} %}
-        <div><span class="key">{{ key }}:</span> <span class="value">{{ value }}</span></div>
-    {% endfor %}
-</div>
+
 <script>
     function addText() {
         const text = document.getElementById('text-input').value;
