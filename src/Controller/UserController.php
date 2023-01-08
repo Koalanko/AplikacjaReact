@@ -15,7 +15,12 @@ class UserController extends AbstractController
         $userFirstName = 'Koalanko';
         $userNotifications = ['bbb', '123','ad.gnsljdvm','aaa'];
         $form = $this->createFormBuilder()
-            ->add('save', SubmitType::class, ['label' => 'Save'])
+            ->add('add_text', SubmitType::class, [
+                'label' => 'Add Text',
+                'attr' => [
+                    'onclick' => 'addText()',
+                ],
+            ])
             ->getForm();
         // the template path is the relative file path from `templates/`
         return $this->render('user/notifications.html.twig', [
