@@ -1,4 +1,9 @@
 {
+"name": "my-symfony-app",
+  "version": "0.1.0",
+  "scripts": {
+    "encore": "encore"
+  },
   "private": true,
   "license": "MIT",
   "devDependencies": {
