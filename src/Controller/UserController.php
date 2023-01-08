@@ -13,11 +13,16 @@ use Symfony\Component\HttpFoundation;
 
 class UserController extends AbstractController
 {
-    #[Route('/product', name: 'product_show')]
-    public function show(ManagerRegistry $doctrine): JsonResponse
+    #[Route('/product/{id}', name: 'product_show')]
+    public function show(ManagerRegistry $doctrine, int $id): JsonResponse
     {
-        $product = $doctrine->getRepository(Pets::class)->findAll();
+        $product = $doctrine->getRepository(Pets::class)->find($id);
 
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
 
         return new JsonResponse($product);
 
