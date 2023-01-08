@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import '../css/app.css';
+import Home from './components/Home';
 
-class App extends React.Component {
-    render() {
-        return <h1>Hello, World!</h1>;
-    }
-}
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Router><Home /></Router>, document.getElementById('root'));

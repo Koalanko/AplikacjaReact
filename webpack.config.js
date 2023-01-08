@@ -1,35 +1,55 @@
-const Encore = require('@symfony/webpack-encore');
+var Encore = require('@symfony/webpack-encore');
+
+// It's useful when you use tools that rely on webpack.config.js file.
+if (!Encore.isRuntimeEnvironmentConfigured()) {
+    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
+}
 
 Encore
-    // the project directory where all compiled assets will be stored
+    // directory where compiled assets will be stored
     .setOutputPath('public/build/')
-
-    // the public path used by the web server to access the previous directory
+    // public path used by the web server to access the output path
     .setPublicPath('/build')
+    .enableReactPreset()
+    // only needed for CDN's or sub-directory deploy
+    //.setManifestKeyPrefix('build/')
 
-    // will create public/build/app.js and public/build/app.css
+    /*
+     * ENTRY CONFIG
+     *
+     * Add 1 entry for each "page" of your app
+     * (including one that's included on every page - e.g. "app")
+     *
+     * Each entry will result in one JavaScript file (e.g. app.js)
+     * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
+     */
     .addEntry('app', './assets/js/app.js')
 
-    // allow sass/scss files to be processed
-    .enableSassLoader()
+    // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
+    .splitEntryChunks()
 
-    // allow legacy applications to use $/jQuery as a global variable
-    .autoProvidejQuery()
+    // will require an extra script tag for runtime.js
+    // but, you probably want this, unless you're building a single-page app
+    .enableSingleRuntimeChunk()
 
-    .enableReactPreset()
-
-    // enable source maps during development
-    .enableSourceMaps(!Encore.isProduction())
-
-    // empty the outputPath dir before each build
+    /*
+     * FEATURE CONFIG
+     *
+     * Enable & configure other features below. For a full
+     * list of features, see:
+     * https://symfony.com/doc/current/frontend.html#adding-more-features
+     */
     .cleanupOutputBeforeBuild()
-
-    // show OS notifications when builds finish/fail
     .enableBuildNotifications()
+    .enableSourceMaps(!Encore.isProduction())
+    // enables hashed filenames (e.g. app.abc123.css)
+    .enableVersioning(Encore.isProduction())
 
-// create hashed filenames (e.g. app.abc123.css)
-// .enableVersioning()
+    // enables @babel/preset-env polyfills
+    .configureBabel(() => {}, {
+        useBuiltIns: 'usage',
+        corejs: 3
+    })
 ;
 
-// export the final configuration
 module.exports = Encore.getWebpackConfig();
