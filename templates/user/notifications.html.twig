@@ -6,21 +6,15 @@
 {{ form_widget(form.add_text) }}
 <p id="text-container"></p>
 Zawartosc bazy danych:
-<p id="data" >{{ data }}</p>
-<div id="json-container"></div>
+<p>{{ data }}</p>
+<div id="json-container">
+    {% for key, value in {{ data }} %}
+        <div><span class="key">{{ key }}:</span> <span class="value">{{ value }}</span></div>
+    {% endfor %}
+</div>
 <script>
     function addText() {
         const text = document.getElementById('text-input').value;
         document.getElementById('text-container').innerHTML += text;
     }
-</script>
-<script>
-    const jsonData = document.getElementById('data').json;
-
-    let html = "";
-    for (const key in jsonData) {
-        html += `<div><span class="key">${key}:</span> <span class="value">${jsonData[key]}</span></div>`;
-    }
-
-    document.getElementById("json-container").innerHTML = html;
 </script>
