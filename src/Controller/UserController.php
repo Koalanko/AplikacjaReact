@@ -46,7 +46,7 @@ class UserController extends AbstractController
         // return $this->render('product/show.html.twig', ['product' => $product]);
     }
     #[Route('/user', name: 'user_app')]
-    public function notifications(ManagerRegistry $doctrine): Response
+    public function notifications(): Response
     {
         // get the user information and notifications somehow
         $userFirstName = 'Koalanko';
