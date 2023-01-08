@@ -16,15 +16,13 @@ class UserController extends AbstractController
     #[Route('/product/{id}', name: 'product_show')]
     public function show(ManagerRegistry $doctrine, int $id): Response
     {
-        $product = $doctrine->getRepository(Pets::class)->find($id);
-        $data = array(
-            'name' => 'John',
-            'age' => 30,
-            'city' => 'New York'
-        );
-        if (!$product) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
+        $product = $doctrine->getRepository(Pets::class)->findAll();
+        $data = array();
+        foreach ($product as $pet) {
+            $data[] = array(
+                'id' => $pet->getId(),
+                'name' => $pet->getName(),
+                'type' => $pet->getType()
             );
         }
         $jsonData = json_encode($data);
