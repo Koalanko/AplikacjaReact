@@ -1,7 +1,12 @@
 {# templates/user/notifications.html.twig #}
-
+{% javascripts
+    'templates/user/MyComponent.js'
+%}
+    <script src="{{ 'assets\app.js' }}"></script>
+{% endjavascripts %}
 <h1>Hello {{ user_first_name }}!</h1>
 <p>You have {{ notifications[2] }} new notifications.</p>
+document.getElementById('output').innerHTML = data.name;
 <label for="text-input"></label><input type="text" id="text-input">
 {{ form_widget(form.add_text) }}
 <script>
