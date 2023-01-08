@@ -22,7 +22,7 @@ class UserController extends AbstractController
             );
         }
 
-        return new Response('Check out this great product: '.$product->getName());
+        return new Response('Check out this great pet: '.$product->getName().' the '.$product->getType());
 
         // or render a template
         // in the template, print things with {{ product.name }}
@@ -34,16 +34,14 @@ class UserController extends AbstractController
         // get the user information and notifications somehow
         $userFirstName = 'Koalanko';
         $userNotifications = ['bbb', '123','ad.gnsljdvm','aaa'];
-        $entityManager = $doctrine->getManager();
-        $Pets=new Pets();
+        #$entityManager = $doctrine->getManager();
+        #$Pets=new Pets();
 
         $form = $this->createFormBuilder()
             ->add('add_text', SubmitType::class, [
                 'label' => 'Add Text',
                 'attr' => [
                     'onclick' => 'addText()',
-                    $Pets->setName('Bunia'),
-        $Pets->setType('Krolik'),
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
                 ],
             ])
