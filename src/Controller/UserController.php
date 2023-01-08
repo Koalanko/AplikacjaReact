@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation;
 class UserController extends AbstractController
 {
     #[Route('/product/{id}', name: 'product_show')]
-    public function show(ManagerRegistry $doctrine, int $id): HttpFoundation\ResponseHeaderBag
+    public function show(ManagerRegistry $doctrine, int $id): JsonResponse
     {
         $product = $doctrine->getRepository(Pets::class)->find($id);
         $response = new JsonResponse($product);
@@ -24,7 +24,7 @@ class UserController extends AbstractController
             );
         }
 
-        return $response->headers;
+        return $response;
 
         // or render a template
         // in the template, print things with {{ product.name }}
