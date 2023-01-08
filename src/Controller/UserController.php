@@ -17,14 +17,14 @@ class UserController extends AbstractController
     public function show(ManagerRegistry $doctrine, int $id): JsonResponse
     {
         $product = $doctrine->getRepository(Pets::class)->find($id);
-
+        $response = new JsonResponse($product);
         if (!$product) {
             throw $this->createNotFoundException(
                 'No product found for id '.$id
             );
         }
 
-        return new JsonResponse($product);
+        return $response;
 
         // or render a template
         // in the template, print things with {{ product.name }}
