@@ -15,6 +15,11 @@ Zawartosc bazy danych:
     }
 </script>
 <script>
+    const jsonData = {{ data }};
+    let html = "";
+    for (const key in jsonData) {
+        html += `<div><span class="key">${key}:</span> <span class="value">${jsonData[key]}</span></div>`;
+    }
 
-document.getElementById("json-container").innerHTML = {{ data }};
+    document.getElementById("json-container").innerHTML = html;
 </script>
