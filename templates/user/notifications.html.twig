@@ -7,9 +7,15 @@
 <p id="text-container"></p>
 Zawartosc bazy danych:
 <p>You have {{ data }} new notifications.</p>
+<div id="json-container"></div>
 <script>
     function addText() {
         const text = document.getElementById('text-input').value;
         document.getElementById('text-container').innerHTML += text;
     }
+</script>
+<script>
+</script>
+const jsonString = JSON.stringify(data);
+document.getElementById("json-container").innerHTML = jsonString;
 </script>
