@@ -18,19 +18,19 @@ class UserController extends AbstractController
         $userFirstName = 'Koalanko';
         $userNotifications = ['bbb', '123','ad.gnsljdvm','aaa'];
         $entityManager = $doctrine->getManager();
+        $Pets=new Pets();
+                    $Pets->setName('Bunia');
+                    $Pets->setType('Krolik');
+                    // tell Doctrine you want to (eventually) save the Product (no queries yet)
+                    $entityManager->persist($Pets);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
         $form = $this->createFormBuilder()
             ->add('add_text', SubmitType::class, [
                 'label' => 'Add Text',
                 'attr' => [
                     'onclick' => 'addText()',
-                    $Pets=new Pets(),
-                    $Pets->setName('Bunia'),
-                    $Pets->setType('Krolik'),
-                    // tell Doctrine you want to (eventually) save the Product (no queries yet)
-                    $entityManager->persist($Pets),
-
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush(),
                 ],
             ])
             ->getForm();
