@@ -1,26 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
+import ReactDOM, {render} from 'react-dom';
+class MyComponent extends React.Component {
+    state = {
+        data: null,
+    };
 
-function Data() {
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('/product');
-            const json = await response.json();
-            setData(json);
-        }
-        fetchData();
-    }, []);
-
-    if (!data) {
-        return <p>Loading data...</p>;
+    componentDidMount() {
+        fetch('/product')
+            .then(response => response.json())
+            .then(data => this.setState({ data }));
     }
 
-    return (
-        <div>
-            <h1>Data</h1>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-        </div>
-    );
+    render() {
+        const { data } = this.state;
+
+        if (!data) {
+            return <div>Loading...</div>;
+        }
+
+        return (
+            <ul>
+                {Object.keys(data).forEach(key => (
+                    <li key={key}>{`${key}: ${data[key]}`}</li>
+                ))}
+            </ul>
+        );
+    }
 }
-Data()
+
+ReactDOM.render(<MyComponent />, document.getElementById('app'));
