@@ -41,8 +41,12 @@ class MyComponent extends React.Component {
     }
 }
 function MyButton() {
+    const handleClick = () => {
+        window.location.assign('https://www.example.com');
+    };
+
     return (
-        <Link to="/user">Go to example page with more content</Link>
+        <button onClick={handleClick}>Go to example.com</button>
     );
 }
 
