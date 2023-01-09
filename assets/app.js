@@ -18,9 +18,16 @@ class MyComponent extends React.Component {
             return <div>Loading...</div>;
         }
 
-        return data
-
+        return (
+            <ul>
+                {data.keys(data).forEach(key => (
+                    <li key={key}>{`${key}: ${data[key]}`}</li>
+                ))}
+            </ul>
+        );
     }
 }
+
+export default MyComponent;
 
 ReactDOM.render(<MyComponent />, document.getElementById('app'));
