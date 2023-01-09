@@ -52,7 +52,7 @@ class UserController extends AbstractController
         // get the user information and notifications somehow
         $userFirstName = 'Koalanko';
         $userNotifications = ['bbb', '123','ad.gnsljdvm','aaa'];
-
+        $userNotificationsLength=$userNotifications.count();
         $product = $doctrine->getRepository(Pets::class)->findAll();
         $data = array();
         foreach ($product as $pet) {
@@ -78,7 +78,7 @@ class UserController extends AbstractController
             // where the key is the variable name and the value is the variable value
             // (Twig recommends using snake_case variable names: 'foo_bar' instead of 'fooBar')
             'user_first_name' => $userFirstName,
-            'notifications' => $userNotifications.sizeof(),
+            'notifications' => $userNotificationsLength,
             'form' =>$form,
             'data'=>$jsonData,
         ]);
