@@ -4,8 +4,13 @@ import {Link} from "react-router-dom";
 class MyComponent extends React.Component {
     state = {
         data: null,
+        showContent: true
     };
-
+    handleClick = () => {
+        this.setState(prevState => ({
+            showContent: !prevState.showContent
+        }));
+    }
     componentDidMount() {
         fetch('/product')
             .then(response => response.json())
@@ -21,10 +26,11 @@ class MyComponent extends React.Component {
 
         return (
             <div className="stock-container">
+                <button onClick={this.handleClick}>Toggle content</button>
                 {data.map((data, key) => {
                     return (
                         <div key={key}>
-                            {"Imię zwierzaka: "+ data.name +
+                            {"Imie zwierzaka: "+ data.name +
                                 " , Typ zwierzaka: " +
                                 data.type }
                         </div>
@@ -36,7 +42,7 @@ class MyComponent extends React.Component {
 }
 function MyButton() {
     return (
-        <button>Click me</button>
+        <input type="button" value="hide data" onClick={handleClick} />
     );
 }
 
