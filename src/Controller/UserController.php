@@ -26,8 +26,6 @@ class UserController extends AbstractController
             );
         }
         $jsonData = json_encode($data);
-        $file = 'C:\xampp\php\bbcare3\some_file.json';
-        file_put_contents($file, $jsonData);
 
 // create a new response object
         $response = new Response();

@@ -1,6 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from 'react';
 
-const element = <h1>Hello, World1!</h1>;
-const element2 = <p1>Hello, World11111dfggdfgdfgd1!</p1>;
-ReactDOM.render(element2, document.getElementById('app'));
+function Data() {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('/product');
+            const json = await response.json();
+            setData(json);
+        }
+        fetchData();
+    }, []);
+
+    if (!data) {
+        return <p>Loading data...</p>;
+    }
+
+    return (
+        <div>
+            <h1>Data</h1>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+        </div>
+    );
+}
+Data()
