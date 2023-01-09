@@ -1,14 +1,6 @@
-import React from "react";
-import "./App.css";
-import { Stocks } from "./Stocks";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+const element = <h1>Hello, World!</h1>;
 
-function App() {
-    return (
-        <div className="App">
-            <Stocks />
-        </div>
-    );
-}
-
-export default App;
+ReactDOM.render(element, document.getElementById('root'));
