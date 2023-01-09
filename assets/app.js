@@ -42,7 +42,7 @@ class MyComponent extends React.Component {
 }
 function MyButton() {
     return (
-        <input type="button" value="hide data" onClick={handleClick} />
+        <Link to="/user">Go to example page with more content</Link>
     );
 }
 
