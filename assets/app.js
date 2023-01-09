@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import ReactDOM, {render} from 'react-dom';
+import {Link} from "react-router-dom";
 class MyComponent extends React.Component {
     state = {
         data: null,
@@ -33,7 +34,10 @@ class MyComponent extends React.Component {
         );
     }
 }
+export function MyButton() {
+    return <Link to="/product">Click me</Link>;
+}
 
 export default MyComponent;
-
 ReactDOM.render(<MyComponent />, document.getElementById('app'));
+ReactDOM.render(<MyButton />, document.getElementById('button'));
