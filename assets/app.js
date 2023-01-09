@@ -23,8 +23,8 @@ class MyComponent extends React.Component {
                 {data.map((data, key) => {
                     return (
                         <div key={key}>
-                            {data.name +
-                                " , " +
+                            {"Imię zwierzaka: "+ data.name +
+                                " , Typ zwierzaka: " +
                                 data.type }
                         </div>
                     );
