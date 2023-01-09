@@ -34,10 +34,12 @@ class MyComponent extends React.Component {
         );
     }
 }
-export function MyButton() {
-    return <Link to="/product">Click me</Link>;
+function MyButton() {
+    return (
+        <button>Click me</button>
+    );
 }
 
-export default MyComponent;
+export default MyButton;
 ReactDOM.render(<MyComponent />, document.getElementById('app'));
 ReactDOM.render(<MyButton />, document.getElementById('button'));
