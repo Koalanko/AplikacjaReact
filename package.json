@@ -2,7 +2,8 @@
   "name": "my-symfony-app",
   "version": "0.1.0",
   "scripts": {
-    "encore": "encore"
+    "encore": "encore",
+"build": "webpack --config webpack.config.js"
   },
   "private": true,
   "license": "MIT",
