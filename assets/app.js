@@ -40,6 +40,5 @@ function MyButton() {
     );
 }
 
-export default MyButton;
 ReactDOM.render(<MyComponent />, document.getElementById('app'));
 ReactDOM.render(<MyButton />, document.getElementById('button'));
