@@ -19,11 +19,17 @@ class MyComponent extends React.Component {
         }
 
         return (
-            <ul>
-                {data.keys(data).forEach(key => (
-                    <li key={key}>{`${key}: ${data[key]}`}</li>
-                ))}
-            </ul>
+            <div className="stock-container">
+                {data.map((data, key) => {
+                    return (
+                        <div key={key}>
+                            {data.name +
+                                " , " +
+                                data.type }
+                        </div>
+                    );
+                })}
+            </div>
         );
     }
 }
