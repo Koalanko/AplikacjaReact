@@ -18,13 +18,8 @@ class MyComponent extends React.Component {
             return <div>Loading...</div>;
         }
 
-        return (
-            <ul>
-                {Object.keys(data).forEach(key => (
-                    <li key={key}>{`${key}: ${data[key]}`}</li>
-                ))}
-            </ul>
-        );
+        return data
+
     }
 }
 
