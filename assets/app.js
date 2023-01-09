@@ -42,7 +42,7 @@ class MyComponent extends React.Component {
 }
 function MyButton() {
     return (
-        <Link to="/example">Go to example page</Link>
+        <a href="https://www.example.com">Go to example.com</a>
     );
 }
 
