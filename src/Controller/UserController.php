@@ -52,7 +52,7 @@ class UserController extends AbstractController
         // get the user information and notifications somehow
         $userFirstName = 'Koalanko';
         $userNotifications = ['bbb', '123','ad.gnsljdvm','aaa'];
-        $userNotificationsLength=$userNotifications.count();
+        $userNotificationsLength=count($userNotifications);
         $product = $doctrine->getRepository(Pets::class)->findAll();
         $data = array();
         foreach ($product as $pet) {
