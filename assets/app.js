@@ -27,7 +27,7 @@ class MyComponent extends React.Component {
         return (
             <div className="stock-container">
                 <button onClick={this.handleClick}>Toggle content</button>
-                {data.map((data, key) => {
+                {this.state.showContent && data.map((data, key) => {
                     return (
                         <div key={key}>
                             {"Imie zwierzaka: "+ data.name +
