@@ -78,7 +78,7 @@ class UserController extends AbstractController
             // where the key is the variable name and the value is the variable value
             // (Twig recommends using snake_case variable names: 'foo_bar' instead of 'fooBar')
             'user_first_name' => $userFirstName,
-            'notifications' => $userNotifications,
+            'notifications' => $userNotifications.sizeof(),
             'form' =>$form,
             'data'=>$jsonData,
         ]);
